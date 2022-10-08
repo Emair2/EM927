@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js"
+        type="application/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+  <script src="abi.js" defer></script>
+  <script src="main.js" defer></script>
+
+  <link rel="stylesheet" href="style.css">
+        
+  <title>🧠 Guess "Right" Word!!!</title>
+</head>
+
+<body>
+  <style>
+  marquee {
+    font: italic small-caps bold 40px Georgia, Garamond, serif;
+    background-color: gold;
+    }
+  div {
+      /* position: relative; */
+      left: 50px;
+      
+      width: 2000px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  p {
+      /* position: relative; */
+      font-size: 20px;
+      text-shadow: 2px 2px 8px orange;
+      font-weight: bold;
+      margin: 0;
+    }
+  a {
+    /* position: absolute; */
+    top: 400px;
+    left: 70px;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    }
+
+    .content {
+      margin-left: 20px;
+    }
+
+  </style>
+
+    
+    <marquee behavior="alternate" scrollamount="20">🧠 Guess "Right" Word!!! 💰 Get EM coins!!!</marquee/>
+ 
+    <div class="content">
+      <h1>
+      Guess "Right" Word! 
+      </h1>
+
+
+      <p>🧩 This is a guessing game. </p>
+      <p>📝 In this system: </p>
+      <p>There are 🔟 levels. </p>
+      <p>Players need to pay the 💰 EM coins to guess what the correct word is, </p>
+      <p>and 💪 get more 💰EM coins back for guessing correctly. </p>
+      <p>Once you have 100 EM coins, 🎉</p>
+      <p>you can get a one-year 📺 YouTube membership！！！</p>
+
+      <br><br>
+    <p>😊 Good luck ~</p>
+    <br>
+
+      <a href="#">
+      ⚠️ Pay Attention‼️
+      Every Level only can play one time.
+      </a>
+    
+    <!-- This input element is the text box where users
+    enter the text they want to set -->
+    <label for="answer1">Enter Number to set:</label>
+    <input type="text" name="answer1" id="answer1" placeholder="answer1">
+
+    <p>Guess Text: <span id="GuessText"></span></p>
+    
+    <button id="TextInput">Right Answer</button>
+    <button id="GuessText">Guess Right word</button>
+</div>
+  
+</body>
+</html>
