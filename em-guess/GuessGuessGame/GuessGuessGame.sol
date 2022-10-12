@@ -25,19 +25,12 @@ contract EM is ERC20, ERC20Burnable, Ownable, ERC20Permit {
 
 
 
-
-
-
    // function InitialEMCoin(address payable _to) public payable {
    //      (bool sent, bytes memory data) = _to.call{value: msg.value}("Now you already got 10 EM Coins");
    //     require(sent, "Failed to send Ether");
    // }
 
     
-
-
-
-
 
 
     function answer1(string memory _guess) public {
