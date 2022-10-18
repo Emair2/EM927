@@ -19,22 +19,67 @@ init();
 
 // EVENT LISTENERS
 
-// when I click on the setNum button...
-$('#setNum').click(function(){
-  setNum();
+// when I click on the Get Initial EM Coin button...
+$('#Get Initial EM Coin').click(function(){
+  redeemFreeTokens();
 })
 
-// when I click on the getNum Button
-$('#getNum').click(function(){
-  getNum();
+// L1
+$('#L1').click(function(){
+  contractWithSigner.answer1(answer1input.value);
+})
+
+// L2
+$('#L2').click(function(){
+  contractWithSigner.answer2(answer2input.value);
+})
+
+// L3
+$('#L3').click(function(){
+  contractWithSigner.answer3(answer3input.value);
+})
+
+// L4
+$('#L4').click(function(){
+  contractWithSigner.answer4(answer4input.value);
+})
+
+// L5
+$('#L5').click(function(){
+  contractWithSigner.answer5(answer5input.value);
+})
+
+// L6
+$('#L6').click(function(){
+  contractWithSigner.answer6(answer6input.value);
+})
+
+// L7
+$('#L7').click(function(){
+  contractWithSigner.answer7(answer7input.value);
+})
+
+// L8
+$('#L8').click(function(){
+  contractWithSigner.answer8(answer8input.value);
+})
+
+// L9
+$('#L9').click(function(){
+  contractWithSigner.answer9(answer9input.value);
+})
+
+// L10
+$('#L10').click(function(){
+  contractWithSigner.answer10(answer10input.value);
 })
 
 // checks the blockchain for the current number every 2 seconds
 // so that the page can be updated automatically if the number
 // is changed.
-setInterval(function(){
-  getNum();
-}, 2000)
+// setInterval(function(){
+//   getNum();
+// }, 2000)
 
 // FUNCTIONS
 

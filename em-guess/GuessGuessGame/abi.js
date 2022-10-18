@@ -1,5 +1,5 @@
 // change this each time you deploy a new contract
-var contractAddress = "0xE5e970212489b2CD50659D3faA99Df88cC32fB93B";
+var contractAddress = "0x7EF2e0048f5bAeDe046f6BF797943daF4ED8CB47";
 
 // paste contract ABI here
 var contractABI = [
@@ -79,12 +79,12 @@ var contractABI = [
 	},
 	{
 		"inputs": [],
-		"name": "DOMAIN_SEPARATOR",
+		"name": "FEE",
 		"outputs": [
 			{
-				"internalType": "bytes32",
+				"internalType": "uint256",
 				"name": "",
-				"type": "bytes32"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -92,7 +92,20 @@ var contractABI = [
 	},
 	{
 		"inputs": [],
-		"name": "FEE",
+		"name": "FREE_TOKEN_AMOUNT",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "InitialEMCoin",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -448,25 +461,6 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			}
-		],
-		"name": "nonces",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "num",
 		"outputs": [
@@ -493,44 +487,8 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "deadline",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint8",
-				"name": "v",
-				"type": "uint8"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "r",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "s",
-				"type": "bytes32"
-			}
-		],
-		"name": "permit",
+		"inputs": [],
+		"name": "redeemFreeTokens",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
