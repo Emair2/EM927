@@ -1,5 +1,5 @@
 // change this each time you deploy a new contract
-var contractAddress = "0x10d3a3D001f80e16cf315533c04FC49923fAB70d";
+var contractAddress = "0x1616D2aF43fAF8b134Eb01a2B16376bA699D2982";
 
 // paste contract ABI here
 var contractABI = [
@@ -174,6 +174,24 @@ var contractABI = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "burnFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "spender",
 				"type": "address"
 			},
@@ -198,23 +216,17 @@ var contractABI = [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "spender",
+				"name": "to",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "addedValue",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],
-		"name": "increaseAllowance",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
+		"name": "mint",
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -265,35 +277,23 @@ var contractABI = [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "account",
+				"name": "spender",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "amount",
+				"name": "addedValue",
 				"type": "uint256"
 			}
 		],
-		"name": "burnFrom",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+		"name": "increaseAllowance",
+		"outputs": [
 			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
-		"name": "mint",
-		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -502,8 +502,14 @@ var contractABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "FEE",
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "FEES",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -574,6 +580,25 @@ var contractABI = [
 				"internalType": "address",
 				"name": "",
 				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "REWARDS",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
