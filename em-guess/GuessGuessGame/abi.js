@@ -1,5 +1,5 @@
 // change this each time you deploy a new contract
-var contractAddress = "0xcb81A1F2Ac048940a6814E81F2fcE00CE20fFC65";
+var contractAddress = "0x10d3a3D001f80e16cf315533c04FC49923fAB70d";
 
 // paste contract ABI here
 var contractABI = [
