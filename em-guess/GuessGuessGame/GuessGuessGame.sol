@@ -4,43 +4,53 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts@4.7.3/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts@4.7.3/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts@4.7.3/access/Ownable.sol";
-import "@openzeppelin/contracts@4.7.3/token/ERC20/extensions/draft-ERC20Permit.sol";
 
 
-contract EM is ERC20, ERC20Burnable, Ownable, ERC20Permit {
-    constructor() ERC20("EM", "MTK") ERC20Permit("EM") {
+contract EM is ERC20, ERC20Burnable, Ownable {
+    constructor() ERC20("EM", "MTK") {
         _mint(msg.sender, 30000 * 10 ** decimals());
     }
 
-     uint256 public num; 
-     
-     //     person        question #    did they answer?
+    uint256 public num; 
+    mapping(address => bool) addressToHasRedeemedFreeTokens;
+    //     person        question #    did they answer?
      mapping(address => mapping(uint => bool)) public addressToAnswerTable;
+     
      uint256 public constant FEE = 10;
+     uint256 public constant FREE_TOKEN_AMOUNT = 10;
+
+     Event Answer1Event(bool wrongOrCorrect)
+
+    function InitialEMCoin() public view returns (uint) {
+        return address(this).balance;
+    }
+
+    //receive() external payable{}
+    // fallback() external payable{}     
 
 
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
 
-
-
-   // function InitialEMCoin(address payable _to) public payable {
-   //      (bool sent, bytes memory data) = _to.call{value: msg.value}("Now you already got 10 EM Coins");
-   //     require(sent, "Failed to send Ether");
-   // }
+    function redeemFreeTokens() public {
+        // check if person has already redeemed tokens
+        require(addressToHasRedeemedFreeTokens[msg.sender] == false, "Already redeemed free tokens");
+        // if they haven't, mint them 10 tokens
+        _mint(msg.sender, FREE_TOKEN_AMOUNT * 10 ** decimals());
+        // then set addressToHasRedeemedFreeTokens to true for this particular person;
+        addressToHasRedeemedFreeTokens[msg.sender] = true;
+    }
 
     
-
-
     function answer1(string memory _guess) public {
         require(addressToAnswerTable[msg.sender][1] == false,
         "You already got your EM Coin!!!!");
 
-        transfer(address(this), FEE * 10 **decimals());
+        transfer(address(this), FEE * 10 ** decimals());
 
         require(keccak256(abi.encodePacked(_guess)) == 0x7464bd924e765ce487910dde7cf78faee47c96a6328f88a0cd374cd7c2491abd,
-        "Incorrect guess, please try again");
+        "Incorrect guess, please try again");   
         _mint(msg.sender, 2 * 10 ** (decimals()-2)); 
         
         addressToAnswerTable[msg.sender][1] = true;
@@ -163,4 +173,5 @@ contract EM is ERC20, ERC20Burnable, Ownable, ERC20Permit {
 
         addressToAnswerTable[msg.sender][10] = true;
     }
+
 }
