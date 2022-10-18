@@ -14,43 +14,54 @@
   <link rel="stylesheet" href="style.css">
         
   <title>🧠 Guess "Right" Word!!!</title>
+
+  <style>
+    marquee {
+      font: italic small-caps bold 40px Georgia, Garamond, serif;
+      background-color: gold;
+      }
+    div {
+        /* position: relative; */
+        left: 50px;
+        width: 2000px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    p {
+        /* position: relative; */
+        font-size: 20px;
+        text-shadow: 2px 2px 8px orange;
+        font-weight: bold;
+        margin: 0;
+      }
+    a {
+      /* position: absolute; */
+      top: 400px;
+      left: 70px;
+      color: red;
+      font-size: 20px;
+      font-weight: bold;
+      }
+  
+      .content {
+        margin-left: 20px;
+      }
+
+      #answer-popup {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 100px;
+        z-index: 100;
+      }
+  
+    </style>
 </head>
 
-<body>
-  <body style="background-color:rgb(174, 224, 7);"></body>
-  <style>
-  marquee {
-    font: italic small-caps bold 40px Georgia, Garamond, serif;
-    background-color: gold;
-    }
-  div {
-      /* position: relative; */
-      left: 50px;
-      width: 2000px;
-      font-size: 20px;
-      font-weight: bold;
-    }
-  p {
-      /* position: relative; */
-      font-size: 20px;
-      text-shadow: 2px 2px 8px orange;
-      font-weight: bold;
-      margin: 0;
-    }
-  a {
-    /* position: absolute; */
-    top: 400px;
-    left: 70px;
-    color: red;
-    font-size: 20px;
-    font-weight: bold;
-    }
+<body style="background-color:rgb(174, 224, 7);">
 
-    .content {
-      margin-left: 20px;
-    }
-
-  </style>
+  <span id="answer-popup"></span>
 
 
     <marquee behavior="alternate" scrollamount="20">🧠 Guess "Right" Word!!! 💰 Get EM coins!!!</marquee/>
@@ -137,7 +148,7 @@
         </a>
         <br>
         
-<button id="Get Initial EM Coin" style="ox-shadow: 0 12px 16px 0 rgba(208, 10, 10, 0.24), 0 17px 50px 0 rgba(96, 236, 185, 0.19); width:50%; height:100%; font-size: 20px; font-weight: bold;"> 💰 Get Initial EM Coin 💰</button>
+<button id="GetInitialEMCoin" style="box-shadow: 0 12px 16px 0 rgba(208, 10, 10, 0.24), 0 17px 50px 0 rgba(96, 236, 185, 0.19); width:50%; height:100%; font-size: 20px; font-weight: bold;"> 💰 Get Initial EM Coin 💰</button>
 
 <br><br>
     

@@ -19,7 +19,7 @@ contract EM is ERC20, ERC20Burnable, Ownable {
      uint256 public constant FEE = 10;
      uint256 public constant FREE_TOKEN_AMOUNT = 10;
 
-     Event Answer1Event(bool wrongOrCorrect)
+    event AnswerEvent(bool wrongOrCorrect);
 
     function InitialEMCoin() public view returns (uint) {
         return address(this).balance;
@@ -49,17 +49,25 @@ contract EM is ERC20, ERC20Burnable, Ownable {
 
         transfer(address(this), FEE * 10 ** decimals());
 
+        if(keccak256(abi.encodePacked(_guess)) != 0x7464bd924e765ce487910dde7cf78faee47c96a6328f88a0cd374cd7c2491abd) {
+            emit AnswerEvent(false);
+        }
+
         require(keccak256(abi.encodePacked(_guess)) == 0x7464bd924e765ce487910dde7cf78faee47c96a6328f88a0cd374cd7c2491abd,
-        "Incorrect guess, please try again");   
+        "Incorrect guess, please try again");
+
         _mint(msg.sender, 2 * 10 ** (decimals()-2)); 
         
         addressToAnswerTable[msg.sender][1] = true;
+
+        emit AnswerEvent(true);
         
     }
 
     function answer2(string memory _guess) public {
         require(addressToAnswerTable[msg.sender][2] == false,
         "You already got your EM Coin!!!!");
+        require(addressToAnswerTable[msg.sender][1] == true, "Please answer the previous challenge correctly first");
 
         transfer(address(this), FEE * 10 **decimals());
 
@@ -73,6 +81,7 @@ contract EM is ERC20, ERC20Burnable, Ownable {
     function answer3(string memory _guess) public {
         require(addressToAnswerTable[msg.sender][3] == false,
         "You already got your EM Coin!!!!");
+        require(addressToAnswerTable[msg.sender][2] == true, "Please answer the previous challenge correctly first");
 
         transfer(address(this), FEE * 10 **decimals());
 

@@ -15,13 +15,30 @@ async function init() {
   await provider.send("eth_requestAccounts", []);
 }
 
+contract.on("AnswerEvent", (wrongOrCorrect) => {
+
+  console.log(wrongOrCorrect);
+  if(wrongOrCorrect == true) {
+    $('#answer-popup').text("✅");
+  } else {
+    $('#answer-popup').text("❌");
+  }
+
+  setTimeout(function() {
+
+    $('#answer-popup').text("");
+
+  }, 4000)
+
+})
+
 init();
 
 // EVENT LISTENERS
 
 // when I click on the Get Initial EM Coin button...
-$('#Get Initial EM Coin').click(function(){
-  redeemFreeTokens();
+$('#GetInitialEMCoin').click(function(){
+  contractWithSigner.redeemFreeTokens();
 })
 
 // L1
@@ -80,34 +97,3 @@ $('#L10').click(function(){
 // setInterval(function(){
 //   getNum();
 // }, 2000)
-
-// FUNCTIONS
-
-// CHANGING THE BLOCKCHAIN
-
-async function getNum() {
-
-  // grab the number from the contract
-  const myNum = await contract.getNum();
-
-  // convert the number into a more human-readable number
-  const convertedNum = +myNum;
-  
-  // display the current number to your web page
-  $('#currentNum').text(`${convertedNum}`)
-}
-
-// READING FROM THE BLOCKCHAIN
-
-function setNum() {
-  // grab the user input from the input text box
-  const numToSet = $('#numInput').val();
-
-  // convert the number they added to a number that Ethereum can
-  // understand (a 'BigNumber')
-  const convertedNum = ethers.utils.parseEther(numToSet);
-
-  // pass the converted number to the contract
-  contractWithSigner.setNum(numToSet);
-}
-
