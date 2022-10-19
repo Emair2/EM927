@@ -15,13 +15,15 @@ async function init() {
   await provider.send("eth_requestAccounts", []);
 }
 
+$('#GetInitialEMCoin').text("💰Now you already redeemed 10 free EM tokens");
+
 contract.on("AnswerEvent", (wrongOrCorrect) => {
 
   console.log(wrongOrCorrect);
   if(wrongOrCorrect == true) {
     $('#answer-popup').text("🎉Congratulations🎉");
   } else {
-    $('#answer-popup').text("❌Try again! It's close!");
+    $('#answer-popup').text("❌Try again! 🤔️It's close!");
   }
 
   setTimeout(function() {
