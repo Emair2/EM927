@@ -15,7 +15,7 @@ async function init() {
   await provider.send("eth_requestAccounts", []);
 }
 
-$('#GetInitialEMCoin').text("💰Now you already redeemed 10 free EM tokens");
+
 
 contract.on("AnswerEvent", (wrongOrCorrect) => {
 
@@ -30,17 +30,20 @@ contract.on("AnswerEvent", (wrongOrCorrect) => {
 
     $('#answer-popup').text("");
 
-  }, 4000)
+  }, 5000)
 
 })
 
 init();
+
+
 
 // EVENT LISTENERS
 
 // when I click on the Get Initial EM Coin button...
 $('#GetInitialEMCoin').click(function(){
   contractWithSigner.redeemFreeTokens();
+  $('#GetInitialEMCoin').text("💰Now you already redeemed 10 free EM tokens");
 })
 
 // L1
