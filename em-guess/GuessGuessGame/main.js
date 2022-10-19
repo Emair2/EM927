@@ -19,9 +19,9 @@ contract.on("AnswerEvent", (wrongOrCorrect) => {
 
   console.log(wrongOrCorrect);
   if(wrongOrCorrect == true) {
-    $('#answer-popup').text("✅");
+    $('#answer-popup').text("🎉Congratulations🎉");
   } else {
-    $('#answer-popup').text("❌");
+    $('#answer-popup').text("❌Try again! It's close!");
   }
 
   setTimeout(function() {
